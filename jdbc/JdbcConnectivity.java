@@ -1,7 +1,6 @@
-package com.techouts;
+package com.techouts.jdbc;
 
 import java.sql.*;
-import java.util.PropertyPermission;
 
 
 public class JdbcConnectivity {
