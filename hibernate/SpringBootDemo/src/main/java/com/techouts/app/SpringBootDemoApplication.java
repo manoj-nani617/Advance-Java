@@ -1,13 +1,13 @@
-package com.techouts;
+package com.techouts.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JdbcConnectivityApplication {
+public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JdbcConnectivityApplication.class, args);
+		SpringApplication.run(SpringBootDemoApplication.class, args);
 	}
 
 }
