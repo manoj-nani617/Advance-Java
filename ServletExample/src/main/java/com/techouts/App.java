@@ -16,7 +16,7 @@ public class App {
         Context context = tomcat.addContext("/", new File(".").getAbsolutePath());
 
         Tomcat.addServlet(context,"exampleServlet",new ExampleServlet());
-        context.addServletMappingDecoded("/fi rst","exampleServlet");
+        context.addServletMappingDecoded("/first","exampleServlet");
 
         Tomcat.addServlet(context,"secondServlet",new SecondServlet());
         context.addServletMappingDecoded("/second","secondServlet");

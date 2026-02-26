@@ -1,0 +1,10 @@
+<web-app >
+    <servlet>
+        <servlet-name>HibernateServlet</servlet-name>
+        <servlet-class>com.techouts.HibernateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HibernateServlet</servlet-name>
+        <url-pattern>/addd</url-pattern>
+    </servlet-mapping>
+</web-app>
