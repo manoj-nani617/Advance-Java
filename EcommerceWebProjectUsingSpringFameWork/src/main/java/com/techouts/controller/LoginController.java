@@ -2,45 +2,48 @@ package com.techouts.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techouts.entity.User;
-import com.techouts.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.techouts.service.LoginService;
+import com.techouts.service.RegisterService;
 
+import jakarta.servlet.http.HttpSession;
 
 @Controller
+
 public class LoginController {
+	@Autowired
+	private LoginService loginService;
+	
+	
+	@GetMapping("/login")
+	public String getLogin() {
+		return "Login";
+	}
+	
+	@PostMapping("/login")
+	public String login(@RequestParam("email") String email,
+						@RequestParam("password") String password,
+						Model model,HttpSession session) 
+	{
+		User user  = loginService.authenticateUser(email,password);
+		if(user != null)
+		{
+			session.setAttribute("user", user);
+			return "redirect:/home";
+					
+		}
+		else {
+			model.addAttribute("message","Email or Password Invalid");
+			return "Login";
+		}
+	
+	}
+	
 
-    @Autowired
-    private UserService userService;
 
-    @GetMapping("/login")
-    public String login() {
-    	return "Login";
-    }
-    
-    @GetMapping("/register")
-    public String getRegister() {
-    	return "Register";
-    }
-    @PostMapping("/register")
-    public String register(@RequestParam("username") String username,
-                           @RequestParam("email") String email,
-                           @RequestParam("password") String password,
-                           @RequestParam("confirmPassword") String confirmPassword) {
-    
-
-        User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(password);
-
-        boolean userFound = userService.authenticate(user, confirmPassword);
-        if(userFound) {
-        	return "redirect:/HomePage";
-        }
-        return "redirect:/login";
-    }
 }

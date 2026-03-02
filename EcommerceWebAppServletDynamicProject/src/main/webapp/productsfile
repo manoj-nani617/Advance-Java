@@ -38,3 +38,4 @@ INSERT INTO Products VALUES
 (19, 'images/sony.jpg', 'Sony Noise Cancelling Headphones', 'Sony Headphones', '15000');
 update products set imageurl='images/samsung.jpg' where productid = 17;
 update products set imageurl='images/lg_fridge.jpg' where  productid=12;
+update products set imageurl='images/amazon_echo.jpg' where  productid=3;

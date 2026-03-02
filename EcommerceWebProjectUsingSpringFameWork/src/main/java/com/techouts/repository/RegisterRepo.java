@@ -14,24 +14,23 @@ import jakarta.persistence.PersistenceContext;
 
 @Repository
 @Transactional
-public class UserRepository {
+public class RegisterRepo {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     public User findByEmail(User user, String confirmPassword) {
-    	System.out.println("Entering into the useRepository method");
+  
         Session session = entityManager.unwrap(Session.class);
         String email = user.getEmail();
 
-         user =  session.createQuery("FROM User WHERE email = :email", User.class)
+         User existingUser =  session.createQuery("FROM User WHERE email = :email", User.class)
                 .setParameter("email",email)
                 .uniqueResult(); 
-        return user;
+        return existingUser;
     }
 
     public void save(User user) {
-
         Session session = entityManager.unwrap(Session.class);
         session.persist(user);
         

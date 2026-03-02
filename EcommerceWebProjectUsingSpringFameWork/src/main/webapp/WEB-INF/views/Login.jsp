@@ -49,6 +49,10 @@ body {
         .login-container input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .error {
+        	color :red;
+        	text-align : center;
+        }
 		
 	</style>
 </head>
@@ -56,7 +60,15 @@ body {
 
 <div class="login-container">
     <h2>Login</h2>
-    <form method="post" >
+        <p>
+   		 <%
+   		 		String message = (String) request.getAttribute("message");
+   		 		if(message != null) {
+    		%>
+    		<p class = "error"><%= request.getAttribute("message")%> </p>
+    		<%}%>
+    </p>
+    <form method="post" action="login" autocomplete="off">
         <label for="username">Email:</label>
         <input type="text" id="username" name="email" id = "email" required >
 

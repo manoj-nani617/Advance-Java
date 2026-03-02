@@ -4,7 +4,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<style >
+<link rel = "stylesheet" href = "Register.css">
+<style>
 	@charset "UTF-8";
  @charset "UTF-8";
 
@@ -81,15 +82,26 @@ button:hover {
 	text-decoration: none;
 	font-weight: bold;
 }
-
-	
+.error {
+	color : red;
+	text-align : center;
+}
 </style>
 </head>
 <body>
 
 <div class="register-box">
     <h2>Register</h2>
-<form method="post" action = "${pageContext.request.contextPath}/register">
+    <p>
+   		 <%
+				
+   		 		String message = (String) request.getAttribute("message");
+   		 		if(message != null) {
+    		%>
+    		<p class="error"><%= request.getAttribute("message")%> </p>
+    		<%}%>
+    </p>
+<form method="post" action="register">
         <label>Username</label>
         <input type="text" name="username" id = "user"  required>
 
@@ -101,6 +113,9 @@ button:hover {
 
         <label>Confirm Password</label>
         <input type="password" name="confirmPassword" id = "confirmPassword" required>
+        
+        <label>Phone Number</label>
+        <input type="text" name="phonenumber" id = "phonenumber" required>
 
 
         <button type="submit" id = "submit">Register</button>
