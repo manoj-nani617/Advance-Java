@@ -15,7 +15,47 @@
     <title><%= product.getProductName() %> - Details</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f4f4; }
-        .container { width: 60%; margin: 50px auto; background: #fff; padding: 20px; border-radius: 10px; }
+        .container { width: 60%; margin: 50px auto; background: #fff; padding: 20px; border-radius: 10px;}
+        .header-container {
+			background :  #007bff;
+			width 100%;
+			height : 50px;
+			border-radius : 10px;
+			display : flex;
+			justify-content : space-between;
+			}
+		.logo {
+			width : 300px;
+			height : 50px;
+			display : flex;
+			justify-content: center;
+			align-items : center;
+			color : white;
+			}
+        .button-container {
+			width : 600px;
+			height : 50x;
+			display : flex;
+			justify-content : space-between;
+			align-items: center;
+	
+			}
+		.button-container button {
+			width :100px;
+			height : 30px;
+			background : white;
+			outline : none;
+			border :none;
+			color : black;
+			border-radius : 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    		transition: transform 0.2s, box-shadow 0.2s;
+			}
+		.button-container button:hover {
+			transform: translateX(-1px);
+    		box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+	
+			}
         img { width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; }
         h2 { margin-top: 10px;text-align : center; }
         .price { color: green; font-weight: bold; margin: 15px 0; font-size: 1.3em; }
@@ -31,13 +71,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="HomePageServlet">Back to Products</a>
+	<div class="header-container">
+		<div class = "logo">
+		<h2>MVR Products</h2>
+		</div>
+		<div class = "button-container">
+		<a href = "${pageContext.request.contextPath}/home"><button>Orders</button></a>
+		<a href = "${pageContext.request.contextPath}/viewcart"><button>Cart</button></a>
+		<a href = "${pageContext.request.contextPath}/orders"><button>Profile</button></a>
+		</div>
+	</div>
+    <div class="container">   
         <h2><%= product.getProductName() %></h2>
         <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
         <p class="price"><%= product.getProductPrice() %></p>
        	<div class = "buttons">
-       	<a href = "<%=request.getContextPath()%>/AddToCartServlet?id=<%=product.getProductId()%>"><button>Add To Cart</button></a> 
+       	<a href = "${pageContext.request.contextPath}/addtocart?id=<%=product.getProductId()%>"><button>Add To Cart</button></a> 
        	</div>
        	<h2>Description</h2>
         <p><%= product.getProductDescription() %></p>

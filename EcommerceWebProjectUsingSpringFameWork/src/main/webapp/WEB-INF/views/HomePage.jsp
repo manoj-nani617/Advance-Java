@@ -1,4 +1,4 @@
-<%@page import="com.techouts.entity.Products"%>
+<%@page import="com.techouts.entity.Products,com.techouts.entity.User"%>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
@@ -128,11 +128,16 @@ a {
 		<h2>MVR Products</h2>
 		</div>
 		<div class = "button-container">
-		<a href = "OrderServlet"><button>Orders</button></a>
-		<a href = "ViewCartServlet"><button>Cart</button></a>
+		<a href = "${pageContext.request.contextPath}/orders"><button>Orders</button></a>
+		<a href = "${pageContext.request.contextPath}/viewcart"><button>Cart</button></a>
 		<a href = "${pageContext.request.contextPath}/profile"><button>Profile</button></a>
+		<% User user = (User) session.getAttribute("user");
+			if(user == null){
+		%>
 		<a href = "${pageContext.request.contextPath}/login"><button>Login</button></a>
+		<%}else {%>
 		<a href = "${pageContext.request.contextPath}/logout"><button>Logout</button></a>
+		<%} %>
 		
 		</div>
 	</div>
@@ -149,7 +154,7 @@ a {
 
         <div class="product-card">
         
-    <a href="ProductDescriptionServlet?id=<%= p.getProductId() %>">
+    <a href="${pageContext.request.contextPath}/productdescription?id=<%= p.getProductId() %>">
         <img src="<%= p.getImageUrl() %>" alt="<%= p.getProductName() %>">
         <h3><%= p.getProductName() %></h3>
         <p class="price"><%= p.getProductPrice() %></p>

@@ -85,18 +85,11 @@
     <div class="buttons">
         <a href="HomePage.jsp" class="btn shop">Continue Shopping</a>
         <a href="AddToCart.jsp" class="btn cart">Go to Cart</a>
+         <a href="Order.jsp" class="btn cart">Go to Orders</a>
     </div>
 
 </div>
 
-
-<!-- Optional auto redirect after 3 seconds -->
-<script>
-    // Uncomment below if you want auto redirect
-    // setTimeout(() => {
-    //     window.location.href = "cart.html";
-    // }, 3000);
-</script>
 
 </body>
 </html>

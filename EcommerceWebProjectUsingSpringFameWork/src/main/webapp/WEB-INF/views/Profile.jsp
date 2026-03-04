@@ -118,9 +118,9 @@ h2{
 		<h2>MVR Products</h2>
 		</div>
 		<div class = "button-container">
-		<a href = "ViewCartServlet"><button>Cart</button></a>
-		<a href = "Profile.jsp"><button>Profile</button></a>
-		<a href = "LogoutServlet"><button>Logout</button></a>
+		<a href = "${pageContext.request.contextPath}/viewcart"><button>Cart</button></a>
+		<a href = "${pageContext.request.contextPath}/home"><button>Home</button></a>
+		<a href = "${pageContext.request.contextPath}/logout"><button>Logout</button></a>
 		
 		</div>
 	</div>
@@ -148,7 +148,7 @@ h2{
     </div>
 
     <div class="logout-btn">
-        <a href="${pageContext.request.contextPath}"><button>Logout</button></a>
+        <a href="${pageContext.request.contextPath}/logout"><button>Logout</button></a>
     </div>
 </div>
 

@@ -15,7 +15,7 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int productId;
+	int cartId;
 	int productCount;
 	
 	@ManyToOne
@@ -28,13 +28,15 @@ public class Cart {
 	
 	
 
-	public int getProductId() {
-		return productId;
+
+	public int getCartId() {
+		return cartId;
 	}
 
-	public void setProductId(int productId) {
-		this.productId = productId;
-	} 
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+
 	public User getUser() {
 		return user;
 	}

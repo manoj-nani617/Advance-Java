@@ -18,6 +18,7 @@ public class HomeController {
 	
 	@GetMapping({"/","/home"})
 	public String home(Model model) {
+		
 		List<Products> products = productService.getProducts();
 		model.addAttribute("product",products);
 		return "HomePage";

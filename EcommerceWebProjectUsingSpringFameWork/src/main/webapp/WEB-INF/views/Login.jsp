@@ -68,7 +68,7 @@ body {
     		<p class = "error"><%= request.getAttribute("message")%> </p>
     		<%}%>
     </p>
-    <form method="post" action="login" autocomplete="off">
+    <form method="post" action="login" >
         <label for="username">Email:</label>
         <input type="text" id="username" name="email" id = "email" required >
 

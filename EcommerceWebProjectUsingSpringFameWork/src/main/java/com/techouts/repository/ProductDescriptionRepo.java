@@ -21,33 +21,5 @@ public class ProductDescriptionRepo {
 		Products p = session.find(Products.class, id);
 		return p;
 	}
-	public Cart checkProductPresence(int id, int userId) {
-		Session session = entityManager.unwrap(Session.class);
-		Cart existingCart = session.createQuery(
-			    "from Cart where user.userId = :uid and product.productId = :pid", Cart.class)
-			    .setParameter("pid", id).setParameter("uid", userId)
-			    .uniqueResult();
-		
-		
-//		If Product is present Add the Count
-		if(existingCart != null) {
-			existingCart.setProductCount(existingCart.getProductCount()+1);
-			session.persist(existingCart);
-		}
-		
-		
-//		If Cart is not there Create New product Cart
-		else {
-			Cart newCart = new Cart();
-			newCart.setProductCount(1);
-			newCart.setProduct(p);
-			newCart.setUser(u);
-			session.persist(newCart);
-
-
-			
-		}
-		return existingCart;
-	}
 	
 }

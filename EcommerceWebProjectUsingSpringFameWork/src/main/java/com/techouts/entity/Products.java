@@ -19,24 +19,24 @@ public class Products {
 	String imageUrl;
 	String productPrice;
 
-//	@OneToMany(mappedBy = "product")
-//	List<Cart> cart;
-//	
-//	@OneToMany(mappedBy = "product")
-//	List<Orders>order;
-//
-//	public List<Cart> getCart() {
-//		return cart;
-//	}
-//	public void setCart(List<Cart> cart) {
-//		this.cart = cart;
-//	}
-//	public List<Orders> getOrder() {
-//		return order;
-//	}
-//	public void setOrder(List<Orders> order) {
-//		this.order = order;
-//	}
+	@OneToMany(mappedBy = "product")
+	List<Cart> cart;
+	
+	@OneToMany(mappedBy = "product")
+	List<Orders>order;
+
+	public List<Cart> getCart() {
+		return cart;
+	}
+	public void setCart(List<Cart> cart) {
+		this.cart = cart;
+	}
+	public List<Orders> getOrder() {
+		return order;
+	}
+	public void setOrder(List<Orders> order) {
+		this.order = order;
+	}
 	public String getProductPrice() {
 		return productPrice;
 	}

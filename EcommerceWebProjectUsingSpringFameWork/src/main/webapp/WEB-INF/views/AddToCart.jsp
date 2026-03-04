@@ -150,9 +150,11 @@ body{
 <div class="header">
     <div class="logo">E-Shop</div>
     <div class="nav">
-        <a href="HomePageServlet">Home</a>
-        <a href="AddToCart.jsp">Cart</a>
-        <a href="Profile.jsp">Profile</a>
+     <a href="${pageContext.request.contextPath}/orders">Orders</a>
+        <a href="${pageContext.request.contextPath}/home">Home</a>
+        <a href="${pageContext.request.contextPath}/viewcart">Cart</a>
+        <a href="${pageContext.request.contextPath}/profile">Profile</a>
+       
     </div>
 </div>
 
@@ -174,10 +176,10 @@ body{
 	    	        </div>
 
 	    	        <div class="qty-box">
-	    				<a href = "<%=request.getContextPath()%>/DecreaseServlet?id=<%=p.getProductId()%>"><button>-</button></a>
+	    				<a href = "${pageContext.request.contextPath}/decrement?id=<%=p.getProductId()%>"><button>-</button></a>
 	    				<button><%= c.getProductCount() %></button>
-	    				<a href = "<%=request.getContextPath()%>/IncreaseServlet?id=<%=p.getProductId() %>"><button type = "submit">+</button></a>
-	    				<a href = "<%=request.getContextPath()%>/DeleteServlet?id=<%= p.getProductId() %>"><button type = "submit">X</button></a>
+	    				<a href = "${pageContext.request.contextPath}/increment?id=<%=p.getProductId() %>"><button type = "submit">+</button></a>
+	    				<a href = "${pageContext.request.contextPath}/delete?id=<%= p.getProductId() %>"><button type = "submit">X</button></a>
 
 	    	            
 
@@ -193,11 +195,11 @@ body{
 		
     <!-- TOTAL -->
     <div class="total-section">
-        <a href = "HomePageServlet"><button class="back-btn" >← Continue Shopping</button></a>
+        <a href = "${pageContext.request.contextPath}/home"><button class="back-btn" >← Continue Shopping</button></a>
          <%int price =(int) session.getAttribute("price"); %>
         <h2>Total: ₹<%=price %></h2>
 
-        <a href = "Checkout.jsp"><button class="checkout-btn"> Checkout</button></a>
+        <a href = "${pageContext.request.contextPath}/checkout"><button class="checkout-btn"> Checkout</button></a>
            
         
     </div>

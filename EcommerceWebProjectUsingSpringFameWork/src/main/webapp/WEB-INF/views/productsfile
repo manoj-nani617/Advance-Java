@@ -1,0 +1,41 @@
+INSERT INTO Products VALUES
+(1, 'images/acer.jpg', 'Acer Aspire 3 Laptop with Intel Processor', 'Acer Laptop', '45000'),
+
+(2, 'images/adidas.jpg', 'Adidas Sports Running Shoes', 'Adidas Shoes', '3500'),
+
+(3, 'images/amazon-echo.jpg', 'Amazon Echo Smart Speaker with Alexa', 'Amazon Echo', '8999'),
+
+(4, 'images/boat.jpg', 'Boat Wireless Bluetooth Headphones', 'Boat Headphones', '1999'),
+
+(5, 'images/dell.jpg', 'Dell Inspiron Laptop', 'Dell Laptop', '55000'),
+
+(6, 'images/fitbit.jpg', 'Fitbit Fitness Smart Watch', 'Fitbit Watch', '12000'),
+
+(7, 'images/hp.jpg', 'HP Pavilion Laptop', 'HP Laptop', '60000'),
+
+(8, 'images/iphone.jpg', 'Apple iPhone Smartphone', 'iPhone', '75000'),
+
+(9, 'images/jbl.jpg', 'JBL Portable Bluetooth Speaker', 'JBL Speaker', '4999'),
+
+(10, 'images/keyboard.jpg', 'Mechanical USB Keyboard', 'Keyboard', '1500'),
+
+(11, 'images/lenovo.jpg', 'Lenovo ThinkPad Laptop', 'Lenovo Laptop', '58000'),
+
+(12, 'images/lg-fridge.jpg', 'LG Double Door Refrigerator', 'LG Fridge', '32000'),
+
+(13, 'images/logitech.jpg', 'Logitech Wireless Mouse', 'Logitech Mouse', '1200'),
+
+(14, 'images/mi.jpg', 'Mi Android Smartphone', 'Mi Phone', '15000'),
+
+(15, 'images/nike.jpg', 'Nike Sports Shoes', 'Nike Shoes', '4000'),
+
+(16, 'images/oneplus.jpg', 'OnePlus 5G Smartphone', 'OnePlus Phone', '30000'),
+
+(17, 'images/sumsung.jpg', 'Samsung Galaxy Smartphone', 'Samsung Phone', '28000'),
+
+(18, 'images/samsung_tv.jpg', 'Samsung 4K Smart Television', 'Samsung TV', '45000'),
+
+(19, 'images/sony.jpg', 'Sony Noise Cancelling Headphones', 'Sony Headphones', '15000');
+update products set imageurl='images/samsung.jpg' where productid = 17;
+update products set imageurl='images/lg_fridge.jpg' where  productid=12;
+update products set imageurl='images/amazon_echo.jpg' where  productid=3;

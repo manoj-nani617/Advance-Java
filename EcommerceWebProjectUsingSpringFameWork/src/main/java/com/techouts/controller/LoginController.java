@@ -28,13 +28,28 @@ public class LoginController {
 	@PostMapping("/login")
 	public String login(@RequestParam("email") String email,
 						@RequestParam("password") String password,
-						Model model,HttpSession session) 
+						Model model,HttpSession httpSession) 
 	{
 		User user  = loginService.authenticateUser(email,password);
 		if(user != null)
 		{
-			session.setAttribute("user", user);
-			return "redirect:/home";
+			httpSession.setAttribute("user", user);
+			String url = (String) httpSession.getAttribute("url");
+			Integer productId = (Integer) httpSession.getAttribute("productId");
+
+			if(url != null && productId != null) {
+			httpSession.removeAttribute("url");
+			httpSession.removeAttribute("productId");
+			
+			return "redirect:/"+url+"?id="+productId;
+			}
+			else if(url != null) {
+				httpSession.removeAttribute(url);
+				return "redirect:/"+url;
+			}
+			else {
+				return "redirect:/home";
+			}
 					
 		}
 		else {
