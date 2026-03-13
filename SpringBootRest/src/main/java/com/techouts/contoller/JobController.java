@@ -14,14 +14,29 @@ public class JobController {
 
     @Autowired
     private JobService service;
-    @GetMapping("jobPosts")
+    @GetMapping("/jobPosts")
     public List<JobPost> getAllJobs() {
-        return service.getAllJobs();
+        List<JobPost>jobPosts =  service.getAllJobs();
+        System.out.println(jobPosts);
+        return jobPosts;
     }
 
-    @GetMapping("jobPost/{postId}")
+    @GetMapping("/jobPost/{postId}")
     public JobPost getJob(@PathVariable int postId)
     {
         return service.getJob(postId);
+    }
+    @PostMapping("/jobPost")
+    public JobPost addJob(@RequestBody  JobPost jobPost)
+    {
+        return service.addJob(jobPost);
+    }
+    @PutMapping("/jobPost")
+    public JobPost updateJob(@RequestBody JobPost jobPost) {
+        return service.updateJob(jobPost);
+    }
+    @DeleteMapping("/jobPost/{id}")
+    public String deleteJob(@PathVariable("id") int id) {
+        return service.deleteJob(id);
     }
 }
